@@ -22,11 +22,11 @@ double[] SumMeanArithValueColumns(int[,] A)
     double[] SumColums = new double[A.GetLength(1)];
     SumColums[0] = 0;
     int k = 0;
-    for (int i = 0; i < A.GetLength(1); i++)
+    for (int j = 0; j < A.GetLength(1); j++)
     {
-        for (int j = 0; j < A.GetLength(0); j++)
+        for (int i = 0; i < A.GetLength(0); i++)
         {
-            SumColums[k] = (SumColums[k] + A[j, i]);
+            SumColums[k] = (SumColums[k] + A[i, j]);
         }
         SumColums[k]=SumColums[k]/A.GetLength(0);
         k++;
