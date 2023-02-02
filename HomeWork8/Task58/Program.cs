@@ -8,8 +8,13 @@
 // 15 18
 
 using static System.Console;
-int[,] resultArray1 = GetRandomArray();
-int[,] resultArray2 = GetRandomArray();
+WriteLine("Введите размер 1-й матрицы m*n через пробел: ");
+string[] sizeMatrix1 = ReadLine()!.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+WriteLine("Введите размер 2-й матрицы m*n через пробел: ");
+string[] sizeMatrix2 = ReadLine()!.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+int[,] resultArray1 = GetRandomArray(int.Parse(sizeMatrix1[0]),int.Parse(sizeMatrix1[1]));
+int[,] resultArray2 = GetRandomArray(int.Parse(sizeMatrix2[0]),int.Parse(sizeMatrix2[1]));
 PrintMatrixArray(resultArray1);
 WriteLine();
 PrintMatrixArray(resultArray2);
@@ -35,12 +40,13 @@ int[,] MultiplyMatrix(int[,] matrix1, int[,] matrix2)
             }
         }
     }
+    else WriteLine("Умножение невозможно");
     return newMatrix;
 }
 
-int[,] GetRandomArray()
+int[,] GetRandomArray(int rows, int columns)
 {
-    int[,] newArray = new int[2, 2];
+    int[,] newArray = new int[rows, columns];
     Random rand = new Random();
     for (int i = 0; i < newArray.GetLength(0); i++)
     {
