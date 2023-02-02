@@ -9,6 +9,12 @@ WriteLine("Введите число M: ");
 int M = int.Parse(ReadLine()!);
 WriteLine("Введите число N: ");
 int N = int.Parse(ReadLine()!);
+if (M>N)
+{
+    int temp=N;
+    N=M;
+    M=temp;
+}
 int result = GetSumElements(M, N);
 WriteLine(result);
 
